@@ -1,6 +1,7 @@
 services:
   lab1-api:
     build: .
+    image: lab1-api
     container_name: lab1-secure-api
     ports:
       - "8080:8080"
