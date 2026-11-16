@@ -52,7 +52,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleGenericException(Exception ex) {
-        // Логируем детальный стек только на сервере, пользователю отдаем безопасное сообщение (Information Disclosure Prevention)
+        // Логируем стек на сервере, юзеру отдаем безопасное сообщение
         log.error("Непредвиденная внутренняя ошибка сервера: ", ex);
         return buildErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, "Внутренняя ошибка сервера");
     }

@@ -22,14 +22,14 @@ public class DataController {
     private final DataService dataService;
 
     @GetMapping
-    @Operation(summary = "Получение списка защищенных данных (Метод 2)",
+    @Operation(summary = "Получение списка защищенных данных",
             description = "Доступен ТОЛЬКО аутентифицированным пользователям с валидным JWT токеном")
     public ResponseEntity<List<DataDto.Response>> getAllData() {
         return ResponseEntity.ok(dataService.getAllRecords());
     }
 
     @PostMapping
-    @Operation(summary = "Создание новой защищенной записи (Метод 3)",
+    @Operation(summary = "Создание новой защищенной записи ",
             description = "Принимает валидированные данные, производит экранирование от XSS и сохраняет в БД через JPA")
     public ResponseEntity<DataDto.Response> createData(@Valid @RequestBody DataDto.CreateRequest request,
                                                        Authentication authentication) {

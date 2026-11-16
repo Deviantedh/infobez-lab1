@@ -1,11 +1,11 @@
 # Secure REST API (ITMO InfoSec Lab 1)
 
 [![CI/CD Security Pipeline](https://github.com/Deviantedh/infobez-lab1/actions/workflows/ci.yml/badge.svg)](https://github.com/Deviantedh/infobez-lab1/actions)
-[![Latest Run](https://img.shields.io/badge/CI%2FCD-Success%20(Run%20%232)-brightgreen)](https://github.com/Deviantedh/infobez-lab1/actions/runs/42636644848)
+[![Latest Run](https://img.shields.io/badge/CI%2FCD-Success%20(Run%20%235)-brightgreen)](https://github.com/Deviantedh/infobez-lab1/actions/runs/43902485935)
 
 > **Студент:** Носов Георгий Иванович (P3432)  
 > **Дисциплина:** Информационная безопасность 
-> **Последний успешный запуск CI/CD:** [Run #42636644848](https://github.com/Deviantedh/infobez-lab1/actions/runs/42636644848)
+> **Последний успешный запуск CI/CD:** [Run #43902485935](https://github.com/Deviantedh/infobez-lab1/actions/runs/43902485935)
 
 ---
 
@@ -87,7 +87,7 @@ curl -s -X POST http://localhost:8080/api/data \
 
 ![CI/CD Pipeline](docs/pipeline.png)
 
-* Прямая ссылка на запуск: [GitHub Actions Run #42636644848](https://github.com/Deviantedh/infobez-lab1/actions/runs/42636644848)
+* Прямая ссылка на запуск: [GitHub Actions Run #43902485935](https://github.com/Deviantedh/infobez-lab1/actions/runs/43902485935)
 * Выгруженные артефакты: `surefire-test-reports`, `spotbugs-sast-report`, `dependency-check-report`.
 
 ---

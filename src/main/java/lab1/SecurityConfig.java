@@ -35,7 +35,7 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        // BCrypt с фактором трудоемкости 12 (высокая стойкость к брутфорсу)
+        // BCrypt с фактором 12
         return new BCryptPasswordEncoder(12);
     }
 
@@ -47,13 +47,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // Отключаем CSRF, так как используется Stateless архитектура с JWT в HTTP-заголовке
+                // Отключаем CSRF
                 .csrf(AbstractHttpConfigurer::disable)
 
-                // Сессии на сервере не сохраняются (Stateless)
+                // Stateless
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
-                // Защитные HTTP-заголовки (XSS, Clickjacking, MIME-sniffing)
+                // Защитные заголовки типа XSS, Clickjacking, MIME-sniffing
                 .headers(headers -> headers
                         .xssProtection(xss -> xss.headerValue(XXssProtectionHeaderWriter.HeaderValue.ENABLED_MODE_BLOCK))
                         .contentSecurityPolicy(csp -> csp.policyDirectives("default-src 'self'"))
@@ -61,13 +61,11 @@ public class SecurityConfig {
                         .contentTypeOptions(HeadersConfigurer.ContentTypeOptionsConfig::disable)
                 )
 
-                // Обработка ошибок 401 и 403 с возвратом структурированного JSON
                 .exceptionHandling(ex -> ex
                         .authenticationEntryPoint(unauthorizedEntryPoint())
                         .accessDeniedHandler(accessDeniedHandler())
                 )
 
-                // Правила авторизации эндпоинтов
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
@@ -75,7 +73,6 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
 
-                // Добавляем JWT middleware в цепочку фильтров
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

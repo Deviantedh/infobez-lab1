@@ -31,7 +31,7 @@ public class DataService {
 
     @Transactional
     public DataDto.Response createRecord(DataDto.CreateRequest request, String username) {
-        // Защита от Stored XSS: санитизация/экранирование HTML-тегов перед сохранением
+        // Защита от Stored XSS экранирование HTML тегов
         String sanitizedTitle = HtmlUtils.htmlEscape(request.getTitle().trim());
         String sanitizedContent = HtmlUtils.htmlEscape(request.getContent().trim());
 

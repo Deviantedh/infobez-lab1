@@ -26,7 +26,7 @@ class SecurityIntegrationTest {
     private ObjectMapper objectMapper;
 
     @Test
-    @DisplayName("1. Попытка несанкционированного доступа к /api/data без токена должна вернуть 401 Unauthorized")
+    @DisplayName("Попытка несанкционированного доступа к /api/data без токена должна вернуть 401 Unauthorized")
     void testAccessDataWithoutTokenReturnsUnauthorized() throws Exception {
         mockMvc.perform(get("/api/data"))
                 .andExpect(status().isUnauthorized())
@@ -35,7 +35,7 @@ class SecurityIntegrationTest {
     }
 
     @Test
-    @DisplayName("2. Попытка входа с неверным паролем должна вернуть 401 Unauthorized")
+    @DisplayName("Попытка входа с неверным паролем должна вернуть 401 Unauthorized")
     void testLoginWithWrongPasswordReturnsUnauthorized() throws Exception {
         AuthDto.LoginRequest request = AuthDto.LoginRequest.builder()
                 .username("admin")
@@ -50,7 +50,7 @@ class SecurityIntegrationTest {
     }
 
     @Test
-    @DisplayName("3. Аутентификация с корректными данными должна выдать валидный JWT токен")
+    @DisplayName("Аутентификация с корректными данными должна выдать валидный JWT токен")
     void testLoginWithValidCredentialsReturnsJwtToken() throws Exception {
         AuthDto.LoginRequest request = AuthDto.LoginRequest.builder()
                 .username("admin")
@@ -68,7 +68,7 @@ class SecurityIntegrationTest {
     }
 
     @Test
-    @DisplayName("4. Доступ к защищенному эндпоинту /api/data с валидным JWT токеном должен вернуть 200 OK")
+    @DisplayName("Доступ к защищенному эндпоинту /api/data с валидным JWT токеном должен вернуть 200 OK")
     void testAccessDataWithValidTokenReturnsOk() throws Exception {
         String token = obtainJwtToken("admin", "admin123");
 
@@ -81,7 +81,7 @@ class SecurityIntegrationTest {
     }
 
     @Test
-    @DisplayName("5. Доступ с поддельным или поврежденным JWT токеном должен вернуть 401 Unauthorized")
+    @DisplayName("Доступ с поддельным или поврежденным JWT токеном должен вернуть 401 Unauthorized")
     void testAccessWithForgedTokenReturnsUnauthorized() throws Exception {
         String forgedToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.forgedSignature";
 
@@ -91,7 +91,7 @@ class SecurityIntegrationTest {
     }
 
     @Test
-    @DisplayName("6. Защита от SQL-инъекций: инъекция в логин не должна обходить аутентификацию")
+    @DisplayName("Защита от SQL-инъекций: инъекция в логин не должна обходить аутентификацию")
     void testSqlInjectionInLoginFailsSafely() throws Exception {
         AuthDto.LoginRequest sqliRequest = AuthDto.LoginRequest.builder()
                 .username("admin' OR '1'='1")
@@ -107,7 +107,7 @@ class SecurityIntegrationTest {
     }
 
     @Test
-    @DisplayName("7. Защита от XSS: HTML теги должны санитизироваться и экранироваться")
+    @DisplayName("Защита от XSS: HTML теги должны санитизироваться и экранироваться")
     void testXssPayloadSanitization() throws Exception {
         String token = obtainJwtToken("admin", "admin123");
 
@@ -127,7 +127,7 @@ class SecurityIntegrationTest {
     }
 
     @Test
-    @DisplayName("8. Проверка защитных HTTP-заголовков (Content-Security-Policy, X-Frame-Options, X-XSS-Protection)")
+    @DisplayName("Проверка защитных HTTP-заголовков (Content-Security-Policy, X-Frame-Options, X-XSS-Protection)")
     void testSecurityHeaders() throws Exception {
         mockMvc.perform(get("/auth/login"))
                 .andExpect(header().string("Content-Security-Policy", "default-src 'self'"))

@@ -44,7 +44,7 @@ public class AuthService {
 
     @Transactional(readOnly = true)
     public AuthDto.AuthResponse login(AuthDto.LoginRequest request) {
-        // Одинаковое сообщение об ошибке для защиты от перечисления пользователей (User Enumeration)
+        // Одинаковое сообщение об ошибке для защиты от перебора пользователей
         User user = userRepository.findByUsername(request.getUsername())
                 .orElseThrow(() -> new BadCredentialsException("Неверный логин или пароль"));
 

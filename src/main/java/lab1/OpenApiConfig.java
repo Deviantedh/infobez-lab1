@@ -18,10 +18,10 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("ITMO InfoSec Lab 1 - Secure REST API")
+                        .title("ITMO Infobez Lab 1")
                         .version("1.0.0")
-                        .description("Разработка защищенного REST API с интеграцией в CI/CD (OWASP Top 10, JWT, SAST, SCA)")
-                        .contact(new Contact().name("Носов Григорий Игоревич").email("markina_t@itmo.ru")))
+                        .description("Разработка защищенного REST API с интеграцией в CI/CD ")
+                        .contact(new Contact().name("Носов Григорий Иванович").email("deviantedby@gmail.com")))
                 .addSecurityItem(new SecurityRequirement().addList(SECURITY_SCHEME_NAME))
                 .components(new Components()
                         .addSecuritySchemes(SECURITY_SCHEME_NAME,

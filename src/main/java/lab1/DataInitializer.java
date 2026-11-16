@@ -50,7 +50,7 @@ public class DataInitializer implements CommandLineRunner {
                     .build();
             dataRecordRepository.save(doc2);
 
-            log.info("Тестовые пользователи созданы: admin (admin123), user (user123)");
+            log.info("Тестовые пользователи созданы admin (admin123), user (user123)");
         }
     }
 }
