@@ -1,8 +1,6 @@
-package itmo.security.lab1;
+package lab1;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import itmo.security.lab1.dto.AuthDto;
-import itmo.security.lab1.dto.DataDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

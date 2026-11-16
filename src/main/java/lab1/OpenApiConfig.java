@@ -1,4 +1,4 @@
-package itmo.security.lab1.config;
+package lab1;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

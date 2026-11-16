@@ -1,10 +1,8 @@
-package itmo.security.lab1.controller;
+package lab1;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import itmo.security.lab1.dto.DataDto;
-import itmo.security.lab1.service.DataService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

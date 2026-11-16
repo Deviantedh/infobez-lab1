@@ -1,6 +1,5 @@
-package itmo.security.lab1.repository;
+package lab1;
 
-import itmo.security.lab1.entity.DataRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

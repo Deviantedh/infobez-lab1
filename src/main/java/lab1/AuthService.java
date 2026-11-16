@@ -1,10 +1,5 @@
-package itmo.security.lab1.service;
+package lab1;
 
-import itmo.security.lab1.dto.AuthDto;
-import itmo.security.lab1.entity.Role;
-import itmo.security.lab1.entity.User;
-import itmo.security.lab1.repository.UserRepository;
-import itmo.security.lab1.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;

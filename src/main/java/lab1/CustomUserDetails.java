@@ -1,6 +1,5 @@
-package itmo.security.lab1.security;
+package lab1;
 
-import itmo.security.lab1.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

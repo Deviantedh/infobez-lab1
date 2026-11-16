@@ -1,7 +1,5 @@
-package itmo.security.lab1.security;
+package lab1;
 
-import itmo.security.lab1.entity.User;
-import itmo.security.lab1.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,4 +1,4 @@
-package itmo.security.lab1.entity;
+package lab1;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,29 +6,27 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "data_records")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DataRecord {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100)
-    private String title;
+    @Column(nullable = false, unique = true, length = 50)
+    private String username;
 
-    @Column(nullable = false, length = 1000)
-    private String content;
+    @Column(nullable = false, length = 255)
+    private String password;
 
-    @Column(nullable = false, length = 30)
-    private String classificationLevel;
-
-    @Column(nullable = false, length = 50)
-    private String createdBy;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private Role role;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;

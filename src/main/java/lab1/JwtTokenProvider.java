@@ -1,4 +1,4 @@
-package itmo.security.lab1.security;
+package lab1;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;

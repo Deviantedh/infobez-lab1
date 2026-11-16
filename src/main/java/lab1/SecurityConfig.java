@@ -1,7 +1,6 @@
-package itmo.security.lab1.config;
+package lab1;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import itmo.security.lab1.security.JwtAuthenticationFilter;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

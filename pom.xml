@@ -11,10 +11,10 @@
         <relativePath/>
     </parent>
 
-    <groupId>itmo.security</groupId>
-    <artifactId>lab1-secure-api</artifactId>
+    <groupId>lab1</groupId>
+    <artifactId>lab1</artifactId>
     <version>1.0.0</version>
-    <name>ITMO InfoSec Lab 1 - Secure REST API</name>
+    <name>lab1</name>
     <description>Защищенный REST API с JWT, защитой от OWASP Top 10 и SAST/SCA в CI/CD</description>
 
     <properties>

@@ -1,10 +1,5 @@
-package itmo.security.lab1.bootstrap;
+package lab1;
 
-import itmo.security.lab1.entity.DataRecord;
-import itmo.security.lab1.entity.Role;
-import itmo.security.lab1.entity.User;
-import itmo.security.lab1.repository.DataRecordRepository;
-import itmo.security.lab1.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

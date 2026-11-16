@@ -1,4 +1,4 @@
-package itmo.security.lab1.entity;
+package lab1;
 
 public enum Role {
     ROLE_USER,

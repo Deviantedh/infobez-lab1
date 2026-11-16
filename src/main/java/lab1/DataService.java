@@ -1,8 +1,5 @@
-package itmo.security.lab1.service;
+package lab1;
 
-import itmo.security.lab1.dto.DataDto;
-import itmo.security.lab1.entity.DataRecord;
-import itmo.security.lab1.repository.DataRecordRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
