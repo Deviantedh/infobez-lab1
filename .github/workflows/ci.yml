@@ -78,9 +78,24 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: Cache OWASP Dependency-Check NVD Data
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.m2/repository/org/owasp/dependency-check-data
+          key: dependency-check-nvd-${{ runner.os }}
+          restore-keys: |
+            dependency-check-nvd-
+
       - name: Run OWASP Dependency-Check
         run: |
-          mvn org.owasp:dependency-check-maven:check -DfailOnError=false -DfailBuildOnCVSS=11 --batch-mode || true
+          mvn org.owasp:dependency-check-maven:check \
+            -DfailOnError=false \
+            -DfailBuildOnCVSS=11 \
+            -DnvdMaxRetryCount=1 \
+            -DconnectionTimeout=15000 \
+            -DreadTimeout=20000 \
+            --batch-mode || true
           if [ ! -f target/dependency-check-report.html ]; then
             echo "NVD API timeout encountered. Generating fallback dependency report..."
             mkdir -p target

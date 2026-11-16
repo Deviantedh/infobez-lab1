@@ -4,7 +4,7 @@
 [![Latest Run](https://img.shields.io/badge/CI%2FCD-Success%20(Run%20%232)-brightgreen)](https://github.com/Deviantedh/infobez-lab1/actions/runs/42636644848)
 
 > **Студент:** Носов Георгий Иванович (P3432)  
-> **Дисциплина:** Информационная безопасность (ИТМО, 2026)  
+> **Дисциплина:** Информационная безопасность 
 > **Последний успешный запуск CI/CD:** [Run #42636644848](https://github.com/Deviantedh/infobez-lab1/actions/runs/42636644848)
 
 ---
@@ -34,19 +34,19 @@
 ### Примеры вызовов (cURL):
 
 ```bash
-# 1. Вход и получение токена
+# Вход и получение токена
 curl -s -X POST http://localhost:8080/auth/login \
   -H "Content-Type: application/json" \
   -d '{"username":"admin","password":"admin123"}'
 
-# 2. Доступ к данным без токена -> 401 Unauthorized
+# Доступ к данным без токена (401 Unauthorized)
 curl -i http://localhost:8080/api/data
 
-# 3. Доступ с валидным JWT
+# Доступ с валидным JWT
 curl -s -X GET http://localhost:8080/api/data \
   -H "Authorization: Bearer <TOKEN>"
 
-# 4. Создание записи с проверкой санитизации XSS
+# Создание записи с проверкой санитизации XSS
 curl -s -X POST http://localhost:8080/api/data \
   -H "Authorization: Bearer <TOKEN>" \
   -H "Content-Type: application/json" \
@@ -94,6 +94,20 @@ curl -s -X POST http://localhost:8080/api/data \
 
 ## 5. Быстрый запуск
 
+### Вариант 1. Через Docker (рекомендуется для интерактивного тестирования):
+```bash
+docker compose up --build -d
+```
+После запуска доступен интерактивный **Swagger UI**:  
+👉 **`http://localhost:8080/swagger-ui.html`**  
+*(Для вызова защищенных методов: авторизуйтесь через `POST /auth/login`, скопируйте токен и нажмите зеленую кнопку **Authorize**).*
+
+Остановить контейнер:
+```bash
+docker compose down
+```
+
+### Вариант 2. Локально через Maven:
 ```bash
 # Тесты безопасности:
 ./mvnw clean test

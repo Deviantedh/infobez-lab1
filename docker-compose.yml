@@ -1,0 +1,9 @@
+services:
+  lab1-api:
+    build: .
+    container_name: lab1-secure-api
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
